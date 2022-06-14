@@ -31,6 +31,36 @@
                         </a>
                     </li>
                 @endcan
+                @can('warehouse-view')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.warehouses.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Warehouse
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('country-view')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.countries.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Country
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('carrier-view')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.carriers.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Carrier
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-header">DATA MASTER</li>
                 @can('user-view')
                     <li class="nav-item">

@@ -63,5 +63,35 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/{id}/delete','PermissionController@destroy')->name('permissions.destroy')->middleware('can:permission-delete');
         });
 
+         // warehouses
+         Route::prefix('warehouses')->group(function(){
+            Route::get('/','WarehouseController@index')->name('warehouses.index')->middleware('can:warehouse-view');
+            Route::get('/create','WarehouseController@create')->name('warehouses.create')->middleware('can:warehouse-create');
+            Route::post('/create','WarehouseController@store')->name('warehouses.store')->middleware('can:warehouse-create');
+            Route::get('/{id}/edit','WarehouseController@edit')->name('warehouses.edit')->middleware('can:warehouse-edit');
+            Route::patch('/{id}/edit','WarehouseController@update')->name('warehouses.update')->middleware('can:warehouse-edit');
+            Route::delete('/{id}/delete','WarehouseController@destroy')->name('warehouses.destroy')->middleware('can:warehouse-delete');
+        });
+
+        //country
+        Route::prefix('countries')->group(function(){
+            Route::get('/','CountryController@index')->name('countries.index')->middleware('can:country-view');
+            Route::get('/create','CountryController@create')->name('countries.create')->middleware('can:country-create');
+            Route::post('/create','CountryController@store')->name('countries.store')->middleware('can:country-create');
+            Route::get('/{id}/edit','CountryController@edit')->name('countries.edit')->middleware('can:country-edit');
+            Route::patch('/{id}/edit','CountryController@update')->name('countries.update')->middleware('can:country-edit');
+            Route::delete('/{id}/delete','CountryController@destroy')->name('countries.destroy')->middleware('can:country-delete');
+        });
+
+         //carriers
+         Route::prefix('carriers')->group(function(){
+            Route::get('/','CarrierController@index')->name('carriers.index')->middleware('can:carrier-view');
+            Route::get('/create','CarrierController@create')->name('carriers.create')->middleware('can:carrier-create');
+            Route::post('/create','CarrierController@store')->name('carriers.store')->middleware('can:carrier-create');
+            Route::get('/{id}/edit','CarrierController@edit')->name('carriers.edit')->middleware('can:carrier-edit');
+            Route::patch('/{id}/edit','CarrierController@update')->name('carriers.update')->middleware('can:carrier-edit');
+            Route::delete('/{id}/delete','CarrierController@destroy')->name('carriers.destroy')->middleware('can:carrier-delete');
+        });
+
     });
 });
