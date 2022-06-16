@@ -31,6 +31,16 @@
                         </a>
                     </li>
                 @endcan
+                @can('finance-view')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.finances.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Finance
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 @can('warehouse-view')
                     <li class="nav-item">
                         <a href="{{ route('admin.warehouses.index') }}" class="nav-link">

@@ -93,5 +93,15 @@ Route::middleware(['auth'])->group(function () {
             Route::delete('/{id}/delete','CarrierController@destroy')->name('carriers.destroy')->middleware('can:carrier-delete');
         });
 
+        //finances
+        Route::prefix('finances')->group(function(){
+            Route::get('/','FinanceController@index')->name('finances.index')->middleware('can:finance-view');
+            Route::get('/create','FinanceController@create')->name('finances.create')->middleware('can:finance-create');
+            Route::post('/create','FinanceController@store')->name('finances.store')->middleware('can:finance-create');
+            Route::get('/{id}/download','FinanceController@download')->name('finances.download');
+            Route::get('/{id}/edit','FinanceController@edit')->name('finances.edit')->middleware('can:finance-edit');
+            Route::patch('/{id}/edit','FinanceController@update')->name('finances.update')->middleware('can:finance-edit');
+            Route::delete('/{id}/delete','FinanceController@destroy')->name('finances.destroy')->middleware('can:finance-delete');
+        });
     });
 });
