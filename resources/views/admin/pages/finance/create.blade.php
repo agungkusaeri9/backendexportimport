@@ -125,7 +125,7 @@
                         <div class="form-group row">
                             <label for="invoice" class="col-md-2 col-form-label">Invoice</label>
                             <div class="col-md-10">
-                                <input type="file" name="invoice" class="form-control @error('invoice') is-invalid @enderror" id="invoice" value="{{ old('invoice') }}">
+                                <input type="text" name="invoice" class="form-control @error('invoice') is-invalid @enderror" id="invoice" value="{{ old('invoice') }}">
                                 @error('invoice')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -136,7 +136,7 @@
                         <div class="form-group row">
                             <label for="payment_status" class="col-md-2 col-form-label">Payment Status</label>
                             <div class="col-md-10">
-                                <input type="file" name="payment_status" class="form-control @error('payment_status') is-invalid @enderror" id="payment_status" value="{{ old('payment_status') }}">
+                                <input type="text" name="payment_status" class="form-control @error('payment_status') is-invalid @enderror" id="payment_status" value="{{ old('payment_status') }}">
                                 @error('payment_status')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -147,7 +147,7 @@
                         <div class="form-group row">
                             <label for="delivery_order" class="col-md-2 col-form-label">Delivery Order</label>
                             <div class="col-md-10">
-                                <input type="file" name="delivery_order" class="form-control @error('delivery_order') is-invalid @enderror" id="delivery_order" value="{{ old('delivery_order') }}">
+                                <input type="text" name="delivery_order" class="form-control @error('delivery_order') is-invalid @enderror" id="delivery_order" value="{{ old('delivery_order') }}">
                                 @error('delivery_order')
                                     <div class="invalid-feedback">
                                         {{ $message }}

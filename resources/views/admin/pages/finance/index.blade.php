@@ -47,21 +47,21 @@
                                 <td>{{ $item->consigne }}</td>
                                 <td>
                                     @if ($item->invoice)
-                                    <a href="{{ route('admin.finances.download',$item->id) }}?cat=invoice" class="btn btn-sm btn-success">Download</a>
+                                    <a href="{{ $item->invoice }}" class="btn btn-sm btn-success" target="_blank">Download</a>
                                     @else
                                     Tidak Ada
                                     @endif
                                 </td>
                                 <td>
                                     @if ($item->payment_status)
-                                    <a href="{{ route('admin.finances.download',$item->id) }}?cat=payment_status" class="btn btn-sm btn-success">Download</a>
+                                    <a href="{{ $item->payment_status }}" class="btn btn-sm btn-success" target="_blank">Download</a>
                                     @else
                                     Tidak Ada
                                     @endif
                                 </td>
                                 <td>
                                     @if ($item->delivery_order)
-                                    <a href="{{ route('admin.finances.download',$item->id) }}?cat=delivery_order" class="btn btn-sm btn-success">Download</a>
+                                    <a href="{{ $item->delivery_order }}" class="btn btn-sm btn-success" target="_blank">Download</a>
                                     @else
                                     Tidak Ada
                                     @endif

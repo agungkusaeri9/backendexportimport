@@ -5,7 +5,7 @@
     <div class="login-logo">
        <a href="{{ route('home') }}">
         <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="" class="img-fluid">
-        <h1 class="text-center pt-3 pb-2">My App</h1>
+        <h1 class="text-center pt-3 pb-2">{{ env('APP_NAME') }}</h1>
        </a>
     </div>
     <!-- /.login-logo -->
@@ -60,7 +60,7 @@
         <!-- /.social-auth-links -->
 
         <p class="mb-0">
-          <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+          {{-- <a href="{{ route('register') }}" class="text-center">Register a new membership</a> --}}
         </p>
       </div>
       <!-- /.login-card-body -->

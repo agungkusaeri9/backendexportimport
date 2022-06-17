@@ -58,28 +58,11 @@ class FinanceController extends Controller
             'port_of_loading' => ['required'],
             'destination' => ['required'],
             'customer' => ['required'],
-            'consigne' => ['required'],
-            'invoice' => ['mimes:pdf','max:2048'],
-            'payment_status' => ['mimes:pdf','max:2048'],
-            'delivery_order' => ['mimes:pdf','max:2048'],
+            'consigne' => ['required']
             
         ]);
 
         $data = request()->all();
-        if(request()->file('invoice'))
-        {
-            $data['invoice'] = request()->file('invoice')->store('finance','public');
-        }
-
-        if(request()->file('payment_status'))
-        {
-            $data['payment_status'] = request()->file('payment_status')->store('finance2','public');
-        }
-        
-        if(request()->file('delivery_order'))
-        {
-            $data['delivery_order'] = request()->file('delivery_order')->store('finance','public');
-        }
         Finance::create($data);
         return redirect()->route('admin.finances.index')->with('success','Finance berhasil disimpan.');
     }
@@ -122,38 +105,12 @@ class FinanceController extends Controller
             'port_of_loading' => ['required'],
             'destination' => ['required'],
             'customer' => ['required'],
-            'consigne' => ['required'],
-            'invoice' => ['mimes:pdf','max:2048'],
-            'payment_status' => ['mimes:pdf','max:2048'],
-            'delivery_order' => ['mimes:pdf','max:2048'],
+            'consigne' => ['required']
             
         ]);
 
         $data = request()->all();
         $item = Finance::findOrFail($id);
-        if(request()->file('invoice'))
-        {
-            Storage::disk('public')->delete($item->invoice);
-            $data['invoice'] = request()->file('invoice')->store('finance','public');
-        }else{
-            $data['invoice'] = $item->invoice;
-        }
-
-        if(request()->file('payment_status'))
-        {
-            Storage::disk('public')->delete($item->payment_status);
-            $data['payment_status'] = request()->file('payment_status')->store('finance2','public');
-        }else{
-            $data['payment_status'] = $item->payment_status;
-        }
-        
-        if(request()->file('delivery_order'))
-        {
-            Storage::disk('public')->delete($item->delivery_order);
-            $data['delivery_order'] = request()->file('delivery_order')->store('finance','public');
-        }else{
-            $data['delivery_order'] = $item->delivery_order;
-        }
         $item->update($data);
         return redirect()->route('admin.finances.index')->with('success','Finance berhasil disimpan.');
     }
@@ -167,9 +124,6 @@ class FinanceController extends Controller
     public function destroy($id)
     {
         $item = Finance::findOrFail($id);
-        Storage::disk('public')->delete($item->invoice);
-        Storage::disk('public')->delete($item->payment_status);
-        Storage::disk('public')->delete($item->delivery_order);
         $item->delete();
         return redirect()->route('admin.finances.index')->with('success','Finance berhasil dihapus.');
     }

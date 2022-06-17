@@ -29,33 +29,4 @@ class Finance extends Model
     {
         return $this->belongsTo(Country::class,'destination','id');
     }
-
-    public function invoice()
-    {
-        if($this->invoice)
-        {
-            $file= public_path('storage/'). $this->invoice;
-
-            $headers = array(
-                      'Content-Type: application/pdf',
-                    );
-        
-            return FacadesResponse::download($file, Str::random(20) . '.pdf', $headers);
-        }else{
-            return 'Tidak Ada';
-        }
-    }
-
-    public function getInvoiceAttribute($value)
-    {
-        return asset('storage/' . $value);
-    }
-    public function getDeliveryOrderAttribute($value)
-    {
-        return asset('storage/' . $value);
-    }
-    public function getPaymentStatusAttribute($value)
-    {
-        return asset('storage/' . $value);
-    }
 }
